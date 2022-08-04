@@ -1,0 +1,23 @@
+INSERT INTO category (name) VALUES ('Sales');
+INSERT INTO category (name) VALUES ('Men');
+INSERT INTO category (name) VALUES ('Women');
+INSERT INTO category (name) VALUES ('Baby');
+INSERT INTO category (name) VALUES ('Kids');
+
+INSERT INTO subcategory (name) VALUES ('T-shirt & Tanks');
+INSERT INTO subcategory (name) VALUES ('Pants');
+INSERT INTO subcategory (name) VALUES ('Shirts');
+INSERT INTO subcategory (name) VALUES ('Shorts');
+INSERT INTO subcategory (name) VALUES ('Hoodies & Sweatshirts');
+INSERT INTO subcategory (name) VALUES ('Suits & Blazers');
+INSERT INTO subcategory (name) VALUES ('Jacket & Coats');
+INSERT INTO subcategory (name) VALUES ('Jeans');
+INSERT INTO subcategory (name) VALUES ('Accessories');
+INSERT INTO subcategory (name) VALUES ('Shoes');
+INSERT INTO subcategory (name) VALUES ('Cardigans & Sweaters');
+INSERT INTO subcategory (name) VALUES ('Swimwear');
+INSERT INTO subcategory (name) VALUES ('Activewear');
+INSERT INTO subcategory (name) VALUES ('Underwear');
+INSERT INTO subcategory (name) VALUES ('Basics');
+INSERT INTO subcategory (name) VALUES ('Sleepwear & Loungewear');
+INSERT INTO subcategory (name) VALUES ('Socks');

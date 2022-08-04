@@ -1,0 +1,10 @@
+{
+  "name": "parser",
+  "version": "1.0.0",
+  "main": "parser.js",
+  "license": "MIT",
+  "dependencies": {
+    "color-namer": "^1.4.0",
+    "puppeteer": "^13.7.0"
+  }
+}

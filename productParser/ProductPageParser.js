@@ -4,76 +4,76 @@ const fs = require('fs')
 // const to = require('../../utils/to')
 
 const subCategoiesIds = [
-  // {
-  //   link: 'https://www2.hm.com/en_us/women/products/shirts-blouses.html',
-  //   id: 1,
-  //   categoryId: 1,
-  // },
-  // {
-  //   link: 'https://www2.hm.com/en_us/women/products/pants.html',
-  //   id: 2,
-  //   categoryId: 1,
-  // },
-  // {
-  //   link: 'https://www2.hm.com/en_us/women/products/blazers-vests.html',
-  //   id: 3,
-  //   categoryId: 1,
-  // },
-  // {
-  //   link: 'https://www2.hm.com/en_us/women/products/jeans.html',
-  //   id: 4,
-  //   categoryId: 1,
-  // },
-  // {
-  //   link: 'https://www2.hm.com/en_us/women/products/shorts.html',
-  //   id: 5,
-  //   categoryId: 1,
-  // },
-  // {
-  //   link: 'https://www2.hm.com/en_us/women/products/jumpsuits-rompers.html',
-  //   id: 6,
-  //   categoryId: 1,
-  // },
-  // {
-  //   link: 'https://www2.hm.com/en_us/women/products/skirts.html',
-  //   id: 7,
-  //   categoryId: 1,
-  // },
-  // {
-  //   link: 'https://www2.hm.com/en_us/women/products/shoes.html',
-  //   id: 8,
-  //   categoryId: 1,
-  // },
-  // {
-  //   link: 'https://www2.hm.com/en_us/women/products/accessories.html',
-  //   id: 9,
-  //   categoryId: 1,
-  // },
-  // {
-  //   link: 'https://www2.hm.com/en_us/women/products/swimwear.html',
-  //   id: 10,
-  //   categoryId: 1,
-  // },
-  // {
-  //   link: 'https://www2.hm.com/en_us/women/products/cardigans-sweaters.html',
-  //   id: 11,
-  //   categoryId: 1,
-  // },
-  // {
-  //   link: 'https://www2.hm.com/en_us/women/products/hoodies-sweatshirts.html',
-  //   id: 12,
-  //   categoryId: 1,
-  // },
-  // {
-  //   link: 'https://www2.hm.com/en_us/women/products/lingerie.html',
-  //   id: 13,
-  //   categoryId: 1,
-  // },
-  // {
-  //   link: 'https://www2.hm.com/en_us/women/products/loungewear.html',
-  //   id: 14,
-  //   categoryId: 1,
-  // },
+  {
+    link: 'https://www2.hm.com/en_us/women/products/shirts-blouses.html',
+    id: 1,
+    categoryId: 1,
+  },
+  {
+    link: 'https://www2.hm.com/en_us/women/products/pants.html',
+    id: 2,
+    categoryId: 1,
+  },
+  {
+    link: 'https://www2.hm.com/en_us/women/products/blazers-vests.html',
+    id: 3,
+    categoryId: 1,
+  },
+  {
+    link: 'https://www2.hm.com/en_us/women/products/jeans.html',
+    id: 4,
+    categoryId: 1,
+  },
+  {
+    link: 'https://www2.hm.com/en_us/women/products/shorts.html',
+    id: 5,
+    categoryId: 1,
+  },
+  {
+    link: 'https://www2.hm.com/en_us/women/products/jumpsuits-rompers.html',
+    id: 6,
+    categoryId: 1,
+  },
+  {
+    link: 'https://www2.hm.com/en_us/women/products/skirts.html',
+    id: 7,
+    categoryId: 1,
+  },
+  {
+    link: 'https://www2.hm.com/en_us/women/products/shoes.html',
+    id: 8,
+    categoryId: 1,
+  },
+  {
+    link: 'https://www2.hm.com/en_us/women/products/accessories.html',
+    id: 9,
+    categoryId: 1,
+  },
+  {
+    link: 'https://www2.hm.com/en_us/women/products/swimwear.html',
+    id: 10,
+    categoryId: 1,
+  },
+  {
+    link: 'https://www2.hm.com/en_us/women/products/cardigans-sweaters.html',
+    id: 11,
+    categoryId: 1,
+  },
+  {
+    link: 'https://www2.hm.com/en_us/women/products/hoodies-sweatshirts.html',
+    id: 12,
+    categoryId: 1,
+  },
+  {
+    link: 'https://www2.hm.com/en_us/women/products/lingerie.html',
+    id: 13,
+    categoryId: 1,
+  },
+  {
+    link: 'https://www2.hm.com/en_us/women/products/loungewear.html',
+    id: 14,
+    categoryId: 1,
+  },
   {
     link: 'https://www2.hm.com/en_us/women/products/sleepwear.html',
     id: 15,
@@ -167,29 +167,24 @@ const subCategoiesIds = [
 ]
 
 ;(async () => {
-  const browser = await puppeteer.launch({ headless: false })
+  const browser = await puppeteer.launch({ headless: true })
   const page = await browser.newPage()
   await page.setUserAgent(
     'Mozilla/5.0 (Windows NT; Win 64; x64; rv:73.0) Gecko/20100101 Firefox/73.0'
   )
   let logger = fs.createWriteStream('data.sql', { flags: 'a' })
-  page.setDefaultNavigationTimeout(0)
-  let data = []
   await page.setViewport({ width: 1920, height: 1080 })
 
   const to = async (link, time = 2500) => {
     await page.goto(link, { waitUntil: 'networkidle0' })
     // await page.waitForTimeout(time)
   }
-  // const to = async (link, time = 2500) => {
-  //   await page.goto(link)
-  //   await page.waitForTimeout(time)
-  // }
 
   for (const subCategory of subCategoiesIds) {
     let initLink = `${subCategory.link}?page-size=40`
 
     await to(initLink)
+
     subCategory.id === subCategoiesIds[0].id &&
       (await page.click('#onetrust-accept-btn-handler'))
 
@@ -199,6 +194,8 @@ const subCategoiesIds = [
       const totalProducts = await page.evaluate(
         () => document.querySelectorAll('.product-item').length
       )
+
+      await (await page.waitForSelector('label[for=image-stillLife]')).click()
 
       let productsImgs = await page.evaluate(() =>
         Array.from(document.querySelectorAll('.item-image'), (el) => el.src)
@@ -234,10 +231,6 @@ const subCategoiesIds = [
         console.log(`${productsCount}/${totalProducts}`)
 
         try {
-          await (
-            await page.waitForSelector('label[for=image-stillLife]')
-          ).click()
-
           //ProdcuctsListPage
           product.img = productsImgs[productsCount]
           product.name = productsNames[productsCount]

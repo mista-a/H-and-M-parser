@@ -311,8 +311,6 @@ const subCategoiesIds = [
           //   () => document.querySelector('.picker-list').childElementCount,
           // )
 
-          // console.log(sizesCount)
-
           // #picker-1 > ul > li:nth-child(2) > div > button > span
           // }
 

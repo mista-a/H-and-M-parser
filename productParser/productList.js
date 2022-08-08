@@ -133,8 +133,6 @@ const fs = require('fs')
       //   () => document.querySelector('.picker-list').childElementCount,
       // )
 
-      // console.log(sizesCount)
-
       // #picker-1 > ul > li:nth-child(2) > div > button > span
       // }
 
@@ -143,12 +141,8 @@ const fs = require('fs')
       await page.click(
         '#page-content > div > div:nth-child(4) > div.products-filter-container > div.products-filter.sticky-on-scroll > form > fieldset.filter-toggleimages.js-filter-toggleimages > ul > li:nth-child(2) > label'
       )
-
-      // console.log(`${productsCount}/${totalProducts}`)
     }
     // Convert obj in sql querys
-
-    // console.log(data)
 
     // logger.write(`CREATE TABLE products(
     //   id SERIAL,

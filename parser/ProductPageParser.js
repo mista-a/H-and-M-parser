@@ -167,7 +167,7 @@ const subCategoiesIds = [
 ]
 
 ;(async () => {
-  const browser = await puppeteer.launch({ headless: true })
+  const browser = await puppeteer.launch({ headless: false })
   const page = await browser.newPage()
   await page.setUserAgent(
     'Mozilla/5.0 (Windows NT; Win 64; x64; rv:73.0) Gecko/20100101 Firefox/73.0'
@@ -325,6 +325,7 @@ const subCategoiesIds = [
               product.showCase
             )}');\n`
           )
+          console.log('write')
           await to(initLink)
         } catch (err) {
           console.log(err)
